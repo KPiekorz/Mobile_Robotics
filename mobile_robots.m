@@ -10,15 +10,21 @@ kp2 = 4;
 x_set = 5;
 y_set = 5;
 
-x_start = 5;
-y_start = 8;
-theta_start = pi;
-
-out = sim("mobile_robot_control.slx");
+x = [8 7 5 3 2 3 5 7];
+y = [5 7 8 7 5 3 2 3];
+theta = [pi/2 5*pi/2 pi 9*pi/8 3*pi/2 13*pi/8 0 pi/4];
 
 figure(1);
-plot(out.x, out.y);
+grid on;
+title("Placement of vechicle to selected point [5,5]");
 
-for r = 1:8
+
+for i = 1:8
+    x_start = x(i);
+    y_start = y(i);
+    theta_start = theta(i);
+    out = sim("mobile_robot_control.slx");
     
+    hold on;
+    plot(out.x, out.y);
 end
