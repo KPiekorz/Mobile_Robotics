@@ -16,31 +16,25 @@ a = 1;
 b = -2;
 c = 4;
 
-speed = 1;
+speed = 10;
 
 x = [2 5 5 8];
 y = [5 2 8 5];
 theta = [3*pi/2 0 pi pi/2];
-
-numXY = randi([1, 19], 1);
-lineXs = [0; sort(rand(numXY, 1) * numXY)];
-lineYs = rand(size(lineXs));
-Xs = rand([100, 1]) * max(lineXs);
-Ys = rand(size(Xs));
 
 figure(1);
 grid on;
 title("Vechicle following the line x-2y+4=0");
 xlabel("x[m]");
 ylabel("y[m]");
-axis([0 10 0 10])
+axis([-10 10 -10 10])
 
 % Definition of the linear function to follow
 b0 = 1/2;
 b1 = 2;
 f = @(x) b0*x+b1;
 hold on;
-fplot(f, [0 10], 'g-');
+fplot(f, [-10 10], 'g-');
 
 %% Line follower simulation
 
