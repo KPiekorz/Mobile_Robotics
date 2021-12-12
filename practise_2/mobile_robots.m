@@ -7,7 +7,7 @@ L = 1;
 % https://stackoverflow.com/questions/3838319/how-can-i-check-if-a-point-is-below-a-line-or-not
 % need to verify if above or below and then change sign of this kp1
 kp1 = 0.5;
-kp2 = -1;
+kp2 = 1;
 
 
 %% Setup parameters for simulation
@@ -35,7 +35,7 @@ xlabel("x[m]");
 ylabel("y[m]");
 axis([0 10 0 10])
 
-% Definition of the linear function
+% Definition of the linear function to follow
 b0 = 1/2;
 b1 = 2;
 f = @(x) b0*x+b1;
@@ -56,10 +56,10 @@ for i = 1:4
         plot(x_start, y_start, '*r');
     end
     
-%     out = sim("line_follower.slx");
-%     
-%     hold on;
-%     plot(out.x, out.y, 'b');
+    out = sim("line_follower.slx");
+    
+    hold on;
+    plot(out.x, out.y, 'b');
 end
 
 hold off
