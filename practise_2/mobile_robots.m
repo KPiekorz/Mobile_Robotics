@@ -10,7 +10,7 @@ kp1 = -0.5;
 kp2 = 1;
 
 
-%% Control of two wheel robot
+%% Setup parameters for simulation
 
 a = 1;
 b = -2;
@@ -29,6 +29,14 @@ xlabel("x[m]");
 ylabel("y[m]");
 axis([0 10 0 10])
 
+b0 = 1/2;
+b1 = 2;
+f = @(x) b0*x+b1;
+hold on;
+fplot(f, [0 10], 'g-')
+
+%% Line follower simulation
+
 for i = 1:4
     x_start = x(i);
     y_start = y(i);
@@ -38,3 +46,5 @@ for i = 1:4
     hold on;
     plot(out.x, out.y, 'b');
 end
+
+hold off
